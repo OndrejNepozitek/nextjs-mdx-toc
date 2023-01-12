@@ -1,7 +1,7 @@
+import createMDX from "@next/mdx";
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import createMDX from "@next/mdx";
 
 const withMDX = createMDX({
     extension: /\.mdx?$/,
@@ -11,7 +11,17 @@ const withMDX = createMDX({
         ],
         rehypePlugins: [
             rehypeSlug,
-            rehypeAutolinkHeadings
+            [
+                rehypeAutolinkHeadings,
+                {
+                    behaviour: 'append',
+                    properties: {
+                        ariaHidden: true,
+                        tabIndex: -1,
+                        className: 'hash-link',
+                    }
+                }
+            ]
         ]
     }
 })

@@ -1,8 +1,12 @@
-.icon.icon-link {
-    display: inline-block;
-    width: 20px;
+.hash-link {
+    text-decoration: none;
+    margin-left: 10px;
 }
 
-.icon.icon-link::before {
+.hash-link:hover {
+    text-decoration: underline;
+}
+
+.hash-link::before {
     content: '#';
 }
